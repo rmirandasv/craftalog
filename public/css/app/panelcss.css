@@ -1,0 +1,7 @@
+.img-thumbnail {
+    background-size: cover;
+}
+.img-thumbnail-container {
+    padding: 10px;
+    background-color:  red;
+}
