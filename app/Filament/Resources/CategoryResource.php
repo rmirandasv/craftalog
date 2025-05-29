@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BrandResource\Pages;
-use App\Filament\Resources\BrandResource\RelationManagers;
-use App\Models\Brand;
+use App\Filament\Resources\CategoryResource\Pages;
+use App\Filament\Resources\CategoryResource\RelationManagers;
+use App\Models\Category;
+use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,15 +14,15 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BrandResource extends Resource
+class CategoryResource extends Resource
 {
-    protected static ?string $model = Brand::class;
+    protected static ?string $model = Category::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationIcon = 'heroicon-o-folder';
 
     public static function getNavigationLabel(): string
     {
-        return __('Brands');
+        return __('Categories');
     }
 
     public static function form(Form $form): Form
@@ -33,18 +34,9 @@ class BrandResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->unique(ignoreRecord: true),
-                Forms\Components\FileUpload::make('logo')
-                    ->image()
-                    ->directory('brands')
-                    ->visibility('public')
-                    ->columnSpanFull(),
                 Forms\Components\Textarea::make('description')
+                    ->maxLength(255)
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('website')
-                    ->url()
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_active')
-                    ->required(),
             ]);
     }
 
@@ -53,11 +45,11 @@ class BrandResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
+                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('description')
+                    ->limit(20),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -66,6 +58,7 @@ class BrandResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //
@@ -91,10 +84,10 @@ class BrandResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrands::route('/'),
-            'create' => Pages\CreateBrand::route('/create'),
-            'view' => Pages\ViewBrand::route('/{record}'),
-            'edit' => Pages\EditBrand::route('/{record}/edit'),
+            'index' => Pages\ListCategories::route('/'),
+            'create' => Pages\CreateCategory::route('/create'),
+            'view' => Pages\ViewCategory::route('/{record}'),
+            'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
     }
 }
