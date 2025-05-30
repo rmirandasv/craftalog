@@ -1,0 +1,74 @@
+import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Link } from "@inertiajs/react"
+
+const featuredCategories = [
+  {
+    id: 1,
+    name: "Limpieza",
+    image: "/placeholder.svg?height=400&width=300",
+    count: 120,
+    slug: "limpieza",
+  },
+  {
+    id: 2,
+    name: "Hogar",
+    image: "/placeholder.svg?height=400&width=300",
+    count: 85,
+    slug: "hogar",
+  },
+  {
+    id: 3,
+    name: "Industrial",
+    image: "/placeholder.svg?height=400&width=300",
+    count: 95,
+    slug: "industrial",
+  },
+  {
+    id: 4,
+    name: "Oficina",
+    image: "/placeholder.svg?height=400&width=300",
+    count: 110,
+    slug: "oficina",
+  },
+]
+
+export default function FeaturedCategories() {
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center mb-10">
+          <h2 className="text-3xl font-bold">Categorías Principales</h2>
+          <Button variant="ghost" className="text-[#2C87CD] hover:text-[#1c6aa6]" asChild>
+            <Link href="/categorias">
+              Ver todas <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredCategories.map((category) => (
+            <Link
+              key={category.id}
+              href={`/categorias/${category.slug}`}
+              className="group relative overflow-hidden rounded-lg"
+            >
+              <div className="aspect-[3/4] relative overflow-hidden">
+                <img
+                  src={category.image || "/placeholder.svg"}
+                  alt={category.name}
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <h3 className="text-xl font-semibold">{category.name}</h3>
+                  <p className="text-sm opacity-90">{category.count} productos</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
