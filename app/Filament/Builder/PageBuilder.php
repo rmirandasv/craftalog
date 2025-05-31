@@ -2,6 +2,7 @@
 
 namespace App\Filament\Builder;
 
+use App\Filament\Builder\Blocks\CategoryBlock;
 use App\Filament\Builder\Blocks\HeroBlock;
 use App\Filament\Builder\Blocks\IconCardBlock;
 use Filament\Forms\Components\Builder;
@@ -12,8 +13,9 @@ class PageBuilder
     public static function make(Form $form): Builder
     {
         $blocks = [
-            new HeroBlock($form)->getBlock($form),
-            new IconCardBlock($form)->getBlock($form),
+            new HeroBlock()->getBlock($form),
+            new IconCardBlock()->getBlock($form),
+            new CategoryBlock()->getBlock($form),
         ];
 
         return Builder::make('blocks')

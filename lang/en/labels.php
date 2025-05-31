@@ -9,4 +9,5 @@ return [
     'label' => 'Label',
     'secondarycta' => 'Secondary CTA button',
     'iconCardBlock' => 'Icon card block',
+    'categoryBlock' => 'Category Block',
 ];
