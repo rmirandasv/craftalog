@@ -3,6 +3,7 @@
 namespace App\Filament\Builder\Blocks;
 
 use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -18,11 +19,14 @@ class HeroBlock implements BlockContract
     public function getBlock(Form $form): Block
     {
         return Block::make('Hero Block')
+        ->label(__('labels.heroBlock'))
         ->schema([
             TextInput::make('heading')
                 ->label(__('labels.heading')),
             TextInput::make('subheading')
                 ->label(__('labels.subheading')),
+            FileUpload::make('image')
+                ->image(),
             Repeater::make('cta')
                 ->label(__('labels.cta'))
                 ->defaultItems(0)
