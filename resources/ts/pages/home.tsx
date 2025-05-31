@@ -4,10 +4,11 @@ import FeaturedProducts from "@/components/featured-products";
 import AppLayout from "@/components/layouts/app-layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Page } from "@/types";
 import { Link } from "@inertiajs/react";
 import { ArrowRight, Package, Truck, Users } from "lucide-react";
 
-export default function HomePage() {
+export default function Home({ page }: { page: Page }) {
   return (
     <AppLayout>
       <div className="flex flex-col min-h-screen">

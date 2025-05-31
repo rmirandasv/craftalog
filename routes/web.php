@@ -1,12 +1,11 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/categories', function () {
     return Inertia::render('categories/index');
