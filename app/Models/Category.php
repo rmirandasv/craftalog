@@ -11,7 +11,17 @@ class Category extends Model
         'name',
         'slug',
         'description',
+        'is_visible',
+        'is_featured',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'is_visible' => 'boolean',
+            'is_featured' => 'boolean',
+        ];
+    }
 
     public function products(): BelongsToMany
     {
