@@ -4,6 +4,7 @@ namespace App\Filament\Builder;
 
 use App\Filament\Builder\Blocks\BrandBlock;
 use App\Filament\Builder\Blocks\CategoryBlock;
+use App\Filament\Builder\Blocks\CTABlock;
 use App\Filament\Builder\Blocks\HeroBlock;
 use App\Filament\Builder\Blocks\IconCardBlock;
 use Filament\Forms\Components\Builder;
@@ -18,6 +19,7 @@ class PageBuilder
             new IconCardBlock()->getBlock($form),
             new CategoryBlock()->getBlock($form),
             new BrandBlock()->getBlock($form),
+            new CTABlock()->getBlock($form),
         ];
 
         return Builder::make('blocks')
