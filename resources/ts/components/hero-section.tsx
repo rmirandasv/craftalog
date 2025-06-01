@@ -1,9 +1,8 @@
-import { HeroBlock } from "@/types";
-import { Button } from "../ui/button";
 import { Link } from "@inertiajs/react";
+import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 
-export default function HeroBlock({ heading }: HeroBlock) {
+export default function HeroSection() {
   return (
     <section className="relative bg-gradient-to-r from-[#2C87CD] to-[#1c6aa6] text-white">
       <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -28,7 +27,7 @@ export default function HeroBlock({ heading }: HeroBlock) {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
               asChild
             >
               <Link href="/contacto">Solicitar Cotización</Link>
@@ -38,7 +37,7 @@ export default function HeroBlock({ heading }: HeroBlock) {
         <div className="flex-1 flex justify-center">
           <div className="relative w-full max-w-md aspect-square">
             <img
-              src="/placeholder.svg?height=500&width=500"
+              src="/assets/500.svg"
               alt="Productos Purifasa"
               width={500}
               height={500}

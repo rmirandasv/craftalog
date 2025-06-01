@@ -6,37 +6,37 @@ const featuredBrands = [
   {
     id: 1,
     name: "3M",
-    logo: "/placeholder.svg?height=100&width=200",
+    logo: null,
     slug: "3m",
   },
   {
     id: 2,
     name: "Kimberly-Clark",
-    logo: "/placeholder.svg?height=100&width=200",
+    logo: null,
     slug: "kimberly-clark",
   },
   {
     id: 3,
     name: "Clorox",
-    logo: "/placeholder.svg?height=100&width=200",
+    logo: null,
     slug: "clorox",
   },
   {
     id: 4,
     name: "Rubbermaid",
-    logo: "/placeholder.svg?height=100&width=200",
+    logo: null,
     slug: "rubbermaid",
   },
   {
     id: 5,
     name: "Diversey",
-    logo: "/placeholder.svg?height=100&width=200",
+    logo: null,
     slug: "diversey",
   },
   {
     id: 6,
     name: "Georgia-Pacific",
-    logo: "/placeholder.svg?height=100&width=200",
+    logo: null,
     slug: "georgia-pacific",
   },
 ]
@@ -62,11 +62,11 @@ export default function FeaturedBrands() {
               className="flex items-center justify-center p-6 bg-gray-50 rounded-lg hover:shadow-md transition-shadow group"
             >
               <img
-                src={brand.logo || "/placeholder.svg"}
+                src={brand.logo || "/assets/200x100.svg"}
                 alt={brand.name}
-                width={150}
-                height={75}
-                className="object-contain max-h-12 grayscale group-hover:grayscale-0 transition-all"
+                width={200}
+                height={100}
+                className="object-contain grayscale group-hover:grayscale-0 transition-all"
               />
             </Link>
           ))}

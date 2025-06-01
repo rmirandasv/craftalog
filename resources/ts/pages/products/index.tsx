@@ -29,7 +29,7 @@ const products = [
     name: "Limpiador Multiusos",
     category: "Limpieza",
     brand: "Clorox",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Limpiador concentrado para múltiples superficies",
   },
   {
@@ -37,7 +37,7 @@ const products = [
     name: "Dispensador de Papel",
     category: "Baño",
     brand: "Kimberly-Clark",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Dispensador de papel toalla de alta capacidad",
   },
   {
@@ -45,7 +45,7 @@ const products = [
     name: "Desinfectante Industrial",
     category: "Industrial",
     brand: "3M",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Desinfectante de alto rendimiento para áreas industriales",
   },
   {
@@ -53,7 +53,7 @@ const products = [
     name: "Organizador de Escritorio",
     category: "Oficina",
     brand: "Rubbermaid",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Organizador modular para mantener el orden en la oficina",
   },
   {
@@ -61,7 +61,7 @@ const products = [
     name: "Jabón Líquido",
     category: "Limpieza",
     brand: "Diversey",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Jabón líquido para manos con propiedades antibacteriales",
   },
   {
@@ -69,7 +69,7 @@ const products = [
     name: "Papel Higiénico Industrial",
     category: "Baño",
     brand: "Georgia-Pacific",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Papel higiénico de alta resistencia para uso industrial",
   },
   {
@@ -77,7 +77,7 @@ const products = [
     name: "Escoba Industrial",
     category: "Limpieza",
     brand: "Rubbermaid",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Escoba resistente para uso industrial",
   },
   {
@@ -85,7 +85,7 @@ const products = [
     name: "Archivador",
     category: "Oficina",
     brand: "3M",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Archivador de documentos con sistema de fácil acceso",
   },
 ];
@@ -384,7 +384,7 @@ export default function ProductsPage() {
                     <Link href={`/productos/${product.id}`} className="block">
                       <div className="aspect-square relative overflow-hidden bg-gray-100">
                         <img
-                          src={product.image || "/placeholder.svg"}
+                          src={product.image || "/assets/400x400.svg"}
                           alt={product.name}
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />

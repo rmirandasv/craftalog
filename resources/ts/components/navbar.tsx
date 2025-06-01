@@ -9,7 +9,7 @@ const categories = [
   { name: "Hogar", href: "/categorias/hogar" },
   { name: "Industrial", href: "/categorias/industrial" },
   { name: "Oficina", href: "/categorias/oficina" },
-  { name: "Ver todas", href: "/categorias" },
+  { name: "Ver todas", href: "/categories" },
 ]
 
 const brands = [
@@ -17,7 +17,7 @@ const brands = [
   { name: "Kimberly-Clark", href: "/marcas/kimberly-clark" },
   { name: "Clorox", href: "/marcas/clorox" },
   { name: "Rubbermaid", href: "/marcas/rubbermaid" },
-  { name: "Ver todas", href: "/marcas" },
+  { name: "Ver todas", href: "/brands" },
 ]
 
 export default function Navbar() {
@@ -35,13 +35,13 @@ export default function Navbar() {
 
         <nav className="hidden md:flex gap-6">
           <Link href="/" className="text-sm font-medium hover:text-[#2C87CD] transition-colors">
-            Inicio
+          Home
           </Link>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="link" className="text-sm font-medium hover:text-[#2C87CD] transition-colors p-0">
-                Categorías <ChevronDown className="ml-1 h-4 w-4" />
+                Categories <ChevronDown className="ml-1 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -68,11 +68,11 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/productos" className="text-sm font-medium hover:text-[#2C87CD] transition-colors">
+          <Link href="/products" className="text-sm font-medium hover:text-[#2C87CD] transition-colors">
             Catálogo
           </Link>
 
-          <Link href="/contacto" className="text-sm font-medium hover:text-[#2C87CD] transition-colors">
+          <Link href="/contaact" className="text-sm font-medium hover:text-[#2C87CD] transition-colors">
             Contáctenos
           </Link>
         </nav>

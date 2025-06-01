@@ -6,28 +6,28 @@ const featuredCategories = [
   {
     id: 1,
     name: "Limpieza",
-    image: "/placeholder.svg?height=400&width=300",
+    image: null,
     count: 120,
     slug: "limpieza",
   },
   {
     id: 2,
     name: "Hogar",
-    image: "/placeholder.svg?height=400&width=300",
+    image: null,
     count: 85,
     slug: "hogar",
   },
   {
     id: 3,
     name: "Industrial",
-    image: "/placeholder.svg?height=400&width=300",
+    image: null,
     count: 95,
     slug: "industrial",
   },
   {
     id: 4,
     name: "Oficina",
-    image: "/placeholder.svg?height=400&width=300",
+    image: null,
     count: 110,
     slug: "oficina",
   },
@@ -55,9 +55,9 @@ export default function FeaturedCategories() {
             >
               <div className="aspect-[3/4] relative overflow-hidden">
                 <img
-                  src={category.image || "/placeholder.svg"}
+                  src={category.image || "/assets/300x400.svg"}
                   alt={category.name}
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover group w-full hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">

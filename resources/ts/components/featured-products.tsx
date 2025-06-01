@@ -8,28 +8,28 @@ const featuredProducts = [
     id: 1,
     name: "Limpiador Multiusos",
     category: "Limpieza",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Limpiador concentrado para múltiples superficies",
   },
   {
     id: 2,
     name: "Dispensador de Papel",
     category: "Baño",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Dispensador de papel toalla de alta capacidad",
   },
   {
     id: 3,
     name: "Desinfectante Industrial",
     category: "Industrial",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Desinfectante de alto rendimiento para áreas industriales",
   },
   {
     id: 4,
     name: "Organizador de Escritorio",
     category: "Oficina",
-    image: "/placeholder.svg?height=300&width=300",
+    image: null,
     description: "Organizador modular para mantener el orden en la oficina",
   },
 ];
@@ -60,7 +60,7 @@ export default function FeaturedProducts() {
               <Link href={`/productos/${product.id}`} className="block">
                 <div className="aspect-square relative overflow-hidden bg-gray-100">
                   <img
-                    src={product.image || "/placeholder.svg"}
+                    src={product.image || "/assets/400x400.svg"}
                     alt={product.name}
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
