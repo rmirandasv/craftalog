@@ -1,75 +1,9 @@
 import AppLayout from "@/components/layouts/app-layout";
+import { Pagination } from "@/components/pagination";
+import { Category, Paginated } from "@/types";
 import { Link } from "@inertiajs/react";
 
-const categories = [
-  {
-    id: 1,
-    name: "Limpieza",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 120,
-    slug: "limpieza",
-    description:
-      "Productos de limpieza para todo tipo de superficies y espacios",
-  },
-  {
-    id: 2,
-    name: "Hogar",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 85,
-    slug: "hogar",
-    description: "Artículos para el hogar y la organización de espacios",
-  },
-  {
-    id: 3,
-    name: "Industrial",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 95,
-    slug: "industrial",
-    description: "Productos industriales para fábricas y grandes instalaciones",
-  },
-  {
-    id: 4,
-    name: "Oficina",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 110,
-    slug: "oficina",
-    description: "Artículos de oficina y papelería para empresas",
-  },
-  {
-    id: 5,
-    name: "Baño",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 75,
-    slug: "bano",
-    description: "Productos para baños públicos y privados",
-  },
-  {
-    id: 6,
-    name: "Cocina",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 60,
-    slug: "cocina",
-    description: "Artículos para cocinas industriales y comerciales",
-  },
-  {
-    id: 7,
-    name: "Seguridad",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 45,
-    slug: "seguridad",
-    description: "Productos de seguridad y protección personal",
-  },
-  {
-    id: 8,
-    name: "Jardinería",
-    image: "/placeholder.svg?height=400&width=300",
-    count: 30,
-    slug: "jardineria",
-    description: "Artículos para el mantenimiento de jardines y áreas verdes",
-  },
-];
-
-export default function CategoriesPage() {
+export default function CategoriesPage({ categories }: { categories: Paginated<Category> }) {
   return (
     <AppLayout>
       <div className="container mx-auto px-4 py-12">
@@ -81,8 +15,8 @@ export default function CategoriesPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {categories.map((category) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+          {categories.data.map((category) => (
             <Link
               key={category.id}
               href={`/categorias/${category.slug}`}
@@ -90,7 +24,7 @@ export default function CategoriesPage() {
             >
               <div className="aspect-[4/3] relative overflow-hidden">
                 <img
-                  src={category.image || "/placeholder.svg"}
+                  src={category.image || "/assets/400x300.svg"}
                   alt={category.name}
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -103,12 +37,13 @@ export default function CategoriesPage() {
                   {category.description}
                 </p>
                 <p className="text-sm font-medium text-[#2C87CD]">
-                  {category.count} productos
+                  {category?.products_count} productos
                 </p>
               </div>
             </Link>
           ))}
         </div>
+        <Pagination paginated={categories} />
       </div>
     </AppLayout>
   );

@@ -16,6 +16,7 @@ class Category extends Model
         'description',
         'is_visible',
         'is_featured',
+        'image',
     ];
 
     protected function casts(): array

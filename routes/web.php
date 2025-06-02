@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -7,9 +8,7 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/categories', function () {
-    return Inertia::render('categories/index');
-});
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 
 Route::get('/contact', function () {
     return Inertia::render('contact');
