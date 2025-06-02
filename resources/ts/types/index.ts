@@ -29,3 +29,13 @@ export type Category = {
   is_featured: boolean;
   products_count?: number | null;
 };
+
+export type Brand = {
+  id: number;
+  name: string;
+  slug: string;
+  logo: string | null;
+  description: string | null;
+  is_featured: boolean;
+  products_count?: number | null;
+}

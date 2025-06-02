@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Models\Product;
@@ -14,9 +15,7 @@ Route::get('/contact', function () {
     return Inertia::render('contact');
 });
 
-Route::get('/brands', function () {
-    return Inertia::render('brands/index');
-});
+Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
 
 Route::get('/products', function () {
     return Inertia::render('products/index');
