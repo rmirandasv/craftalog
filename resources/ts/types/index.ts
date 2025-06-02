@@ -38,4 +38,17 @@ export type Brand = {
   description: string | null;
   is_featured: boolean;
   products_count?: number | null;
+};
+
+export type Product = {
+  id: number;
+  name: string;
+  slug: string;
+  description: string;
+  short_description: string;
+  is_featured: boolean;
+  images: string[] | null;
+  attributes: Record<string, string>[];
+  brand?: Brand;
+  categories?: Category[];
 }
