@@ -20,6 +20,4 @@ Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
-Route::get('/products/{product:slug}', function (Product $product) {
-    return Inertia::render('products/show');
-});
+Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');

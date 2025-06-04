@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -37,7 +39,13 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            //
+            'categories' => Cache::remember(
+                key: 'footer.categories',
+                ttl: 30,
+                callback: fn () => Category::orderBy(column: 'created_at', direction: 'desc')
+                    ->take(5)
+                    ->get(),
+            )
         ];
     }
 }

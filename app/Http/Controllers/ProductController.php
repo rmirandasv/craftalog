@@ -25,4 +25,11 @@ class ProductController extends Controller
             'brands' => $brands,
         ]);
     }
+
+    public function show(Product $product)
+    {
+        return Inertia::render(component: 'products/show', props: [
+            'product' => $product->load(relations: ['categories', 'brand']),
+        ]);
+    }
 }

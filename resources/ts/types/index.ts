@@ -52,3 +52,7 @@ export type Product = {
   brand?: Brand;
   categories?: Category[];
 }
+
+export type SharedData = {
+  categories: Category[];
+}

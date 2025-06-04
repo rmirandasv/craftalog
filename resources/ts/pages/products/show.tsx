@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ChevronRight, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -6,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@inertiajs/react";
 import AppLayout from "@/components/layouts/app-layout";
+import { Product } from "@/types";
 
 const products = [
   {
@@ -67,31 +67,7 @@ const relatedProductsData = [
   },
 ];
 
-export default function ProductPage({
-  params = { id: "1" },
-}: {
-  params: { id: string };
-}) {
-  const [activeImage, setActiveImage] = useState(0);
-
-  // Find the product by ID
-  const product = products.find((p) => p.id === params.id);
-
-  // If product not found, show error message
-  if (!product) {
-    return (
-      <div className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-2xl font-bold mb-4">Producto no encontrado</h1>
-        <p className="mb-6">
-          Lo sentimos, el producto que está buscando no existe.
-        </p>
-        <Button asChild>
-          <Link href="/productos">Volver al catálogo</Link>
-        </Button>
-      </div>
-    );
-  }
-
+export default function ProductPage({ product }: { product: Product }) {
   return (
     <AppLayout>
       <div className="container mx-auto px-4 py-8">
@@ -104,12 +80,14 @@ export default function ProductPage({
             Productos
           </Link>
           <ChevronRight className="h-4 w-4" />
-          <Link
-            href={`/categorias/${product.category.toLowerCase()}`}
-            className="hover:text-[#2C87CD]"
-          >
-            {product.category}
-          </Link>
+          {product.categories?.map((category) => (
+            <Link
+              href={`/categorias/${category.name.toLowerCase()}`}
+              className="hover:text-[#2C87CD]"
+            >
+              {category.name}
+            </Link>
+          ))}
           <ChevronRight className="h-4 w-4" />
           <span className="text-gray-900 font-medium">{product.name}</span>
         </div>
@@ -119,29 +97,10 @@ export default function ProductPage({
           <div className="space-y-4">
             <div className="aspect-square relative rounded-lg overflow-hidden border">
               <img
-                src={product.images[activeImage] || "/placeholder.svg"}
+                src={product.images ? product.images[0] : "/assets/500x500.svg"}
                 alt={product.name}
                 className="object-cover"
               />
-            </div>
-            <div className="flex gap-4 overflow-x-auto pb-2">
-              {product.images.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveImage(index)}
-                  className={`relative w-20 h-20 rounded-md overflow-hidden border-2 ${
-                    activeImage === index
-                      ? "border-[#2C87CD]"
-                      : "border-transparent"
-                  }`}
-                >
-                  <img
-                    src={image || "/placeholder.svg"}
-                    alt={`${product.name} - Vista ${index + 1}`}
-                    className="object-cover"
-                  />
-                </button>
-              ))}
             </div>
           </div>
 
@@ -150,18 +109,21 @@ export default function ProductPage({
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Link
-                  href={`/marcas/${product.brand.toLowerCase()}`}
+                  href={`/marcas/${product.brand?.name.toLowerCase()}`}
                   className="text-sm font-medium text-[#2C87CD]"
                 >
-                  {product.brand}
+                  {product.brand?.name}
                 </Link>
                 <span className="text-gray-400">|</span>
+                {product.categories?.map((category) => (
                 <Link
-                  href={`/categorias/${product.category.toLowerCase()}`}
+                key={category.id}
+                  href={`/categorias/${category.name.toLowerCase()}`}
                   className="text-sm text-gray-600"
                 >
-                  {product.category}
+                  {category.name}
                 </Link>
+                ))}
               </div>
               <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
               <p className="text-gray-600">{product.description}</p>
@@ -174,14 +136,12 @@ export default function ProductPage({
                 Características principales
               </h3>
               <ul className="space-y-2">
-                {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2">
+                  <li className="flex items-start gap-2">
                     <div className="rounded-full bg-[#2C87CD]/10 p-1 mt-0.5">
                       <ChevronRight className="h-3 w-3 text-[#2C87CD]" />
                     </div>
-                    <span>{feature}</span>
+                    <span>Feature</span>
                   </li>
-                ))}
               </ul>
             </div>
 
@@ -221,10 +181,10 @@ export default function ProductPage({
           </TabsList>
           <TabsContent value="specifications" className="pt-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {Object.entries(product.specifications).map(([key, value]) => (
+              {product.attributes && Object.entries(product.attributes).map(([key, value]) => (
                 <div key={key} className="flex justify-between py-2 border-b">
                   <span className="font-medium">{key}</span>
-                  <span className="text-gray-600">{value}</span>
+                  <span className="text-gray-600">{value.toString()}</span>
                 </div>
               ))}
             </div>

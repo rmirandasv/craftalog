@@ -1,15 +1,9 @@
-import { Link } from "@inertiajs/react";
+import { SharedData } from "@/types";
+import { Link, usePage } from "@inertiajs/react";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
-const categories = [
-  { name: "Category 1", href: "#" },
-  { name: "Category 2", href: "#" },
-  { name: "Category 3", href: "#" },
-  { name: "Category 4", href: "#" },
-  { name: "Category 5", href: "#" },
-];
-
 export default function Footer() {
+  const { categories } = usePage<SharedData>().props;
   return (
     <footer className="bg-gray-100 border-t">
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -99,10 +93,10 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Categorías</h3>
             <ul className="space-y-2">
-              {categories.slice(0, 4).map((category) => (
+              {categories.map((category) => (
                 <li key={category.name}>
                   <Link
-                    href={category.href}
+                    href={`/categories/${category.slug}`}
                     className="text-gray-600 hover:text-[#2C87CD] text-sm"
                   >
                     {category.name}

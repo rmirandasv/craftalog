@@ -217,7 +217,7 @@ export default function ProductsPage({
                   key={product.id}
                   className="overflow-hidden group hover:shadow-md transition-shadow"
                 >
-                  <Link href={`/productos/${product.id}`} className="block">
+                  <Link href={`/products/${product.slug}`} className="block">
                     <div className="aspect-square relative overflow-hidden bg-gray-100">
                       <img
                         src={
