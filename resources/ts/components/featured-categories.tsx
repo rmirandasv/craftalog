@@ -1,39 +1,9 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@inertiajs/react"
+import { Category } from "@/types"
 
-const featuredCategories = [
-  {
-    id: 1,
-    name: "Limpieza",
-    image: null,
-    count: 120,
-    slug: "limpieza",
-  },
-  {
-    id: 2,
-    name: "Hogar",
-    image: null,
-    count: 85,
-    slug: "hogar",
-  },
-  {
-    id: 3,
-    name: "Industrial",
-    image: null,
-    count: 95,
-    slug: "industrial",
-  },
-  {
-    id: 4,
-    name: "Oficina",
-    image: null,
-    count: 110,
-    slug: "oficina",
-  },
-]
-
-export default function FeaturedCategories() {
+export default function FeaturedCategories({ categories }: { categories: Category[] }) {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -47,7 +17,7 @@ export default function FeaturedCategories() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredCategories.map((category) => (
+          {categories.map((category) => (
             <Link
               key={category.id}
               href={`/categorias/${category.slug}`}
@@ -62,7 +32,7 @@ export default function FeaturedCategories() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                   <h3 className="text-xl font-semibold">{category.name}</h3>
-                  <p className="text-sm opacity-90">{category.count} productos</p>
+                  <p className="text-sm opacity-90">{category.products_count} productos</p>
                 </div>
               </div>
             </Link>

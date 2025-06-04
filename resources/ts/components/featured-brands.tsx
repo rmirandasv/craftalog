@@ -1,47 +1,9 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@inertiajs/react"
+import { Brand } from "@/types"
 
-const featuredBrands = [
-  {
-    id: 1,
-    name: "3M",
-    logo: null,
-    slug: "3m",
-  },
-  {
-    id: 2,
-    name: "Kimberly-Clark",
-    logo: null,
-    slug: "kimberly-clark",
-  },
-  {
-    id: 3,
-    name: "Clorox",
-    logo: null,
-    slug: "clorox",
-  },
-  {
-    id: 4,
-    name: "Rubbermaid",
-    logo: null,
-    slug: "rubbermaid",
-  },
-  {
-    id: 5,
-    name: "Diversey",
-    logo: null,
-    slug: "diversey",
-  },
-  {
-    id: 6,
-    name: "Georgia-Pacific",
-    logo: null,
-    slug: "georgia-pacific",
-  },
-]
-
-export default function FeaturedBrands() {
+export default function FeaturedBrands({ brands }: { brands: Brand[] }) {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -55,7 +17,7 @@ export default function FeaturedBrands() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {featuredBrands.map((brand) => (
+          {brands.map((brand) => (
             <Link
               key={brand.id}
               href={`/marcas/${brand.slug}`}

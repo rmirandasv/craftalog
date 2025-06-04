@@ -43,8 +43,10 @@ class BrandResource extends Resource
                 Forms\Components\TextInput::make('website')
                     ->url()
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_active')
-                    ->required(),
+                Forms\Components\Toggle::make('is_visible')
+                    ->label(__('labels.isvisbe')),
+                Forms\Components\Toggle::make('is_featured')
+                    ->label(__('labels.isFeatured')),
             ]);
     }
 
@@ -56,8 +58,12 @@ class BrandResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
+                Tables\Columns\IconColumn::make('is_visible')
+                    ->boolean()
+                    ->sortable(),
+                Tables\Columns\IconColumn::make('is_featured')
+                    ->boolean()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -5,10 +5,17 @@ import FeaturedCategories from "@/components/featured-categories";
 import FeaturedProducts from "@/components/featured-products";
 import HeroSection from "@/components/hero-section";
 import AppLayout from "@/components/layouts/app-layout";
-import { Button } from "@/components/ui/button";
-import { Link } from "@inertiajs/react";
+import { Brand, Category, Product } from "@/types";
 
-export default function Home() {
+export default function Home({
+  categories,
+  products,
+  brands,
+}: {
+  categories: Category[];
+  products: Product[];
+  brands: Brand[];
+}) {
   return (
     <AppLayout>
       <div className="flex flex-col min-h-screen">
@@ -19,13 +26,13 @@ export default function Home() {
         <FeatureSection />
 
         {/* Featured Categories */}
-        <FeaturedCategories />
+        <FeaturedCategories categories={categories} />
 
         {/* Featured Products */}
-        <FeaturedProducts />
+        <FeaturedProducts products={products} />
 
         {/* Featured Brands */}
-        <FeaturedBrands />
+        <FeaturedBrands brands={brands} />
 
         {/* CTA Section */}
         <CTASection />

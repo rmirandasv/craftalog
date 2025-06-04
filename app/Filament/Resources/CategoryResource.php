@@ -22,7 +22,7 @@ class CategoryResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('Categories');
+        return __('navigation.categories');
     }
 
     public static function form(Form $form): Form
@@ -37,6 +37,10 @@ class CategoryResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->maxLength(255)
                     ->columnSpanFull(),
+                Forms\Components\Toggle::make('is_visible')
+                    ->label(__('labels.isVisible')),
+                Forms\Components\Toggle::make('is_featured')
+                    ->label(__('labels.isFeatured')),
             ]);
     }
 
@@ -50,6 +54,12 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('description')
                     ->limit(20),
+                Tables\Columns\IconColumn::make('is_visible')
+                    ->label(__('labels.isVisible'))
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('is_featured')
+                    ->label(__('labels.isFeatured'))
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

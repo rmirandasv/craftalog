@@ -10,4 +10,6 @@ return [
     'secondarycta' => 'Secondary CTA button',
     'iconCardBlock' => 'Icon card block',
     'categoryBlock' => 'Category Block',
+    'isVisible' => 'Visible',
+    'isFeatured' => 'Featured',
 ];

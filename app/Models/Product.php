@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\BelongsToRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -52,5 +54,17 @@ class Product extends Model
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    #[Scope]
+    public function visible(Builder $query): Builder
+    {
+        return $query->where('is_visible', true);
+    }
+
+    #[Scope]
+    public function featured(Builder $query): Builder
+    {
+        return $query->where('is_featured', true);
     }
 }
