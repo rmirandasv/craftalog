@@ -24,14 +24,6 @@ export default function HeroSection() {
                 Ver Catálogo <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
-              asChild
-            >
-              <Link href="/contacto">Solicitar Cotización</Link>
-            </Button>
           </div>
         </div>
         <div className="flex-1 flex justify-center">

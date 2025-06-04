@@ -77,10 +77,6 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <Button variant="outline" className="hidden md:flex" asChild>
-          <Link href="/contacto">Solicitar Cotización</Link>
-        </Button>
-
         <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle menu</span>
@@ -145,11 +141,6 @@ export default function Navbar() {
             >
               Contáctenos
             </Link>
-            <Button className="mt-4 bg-[#2C87CD] hover:bg-[#1c6aa6]" asChild>
-              <Link href="/contacto" onClick={() => setIsMenuOpen(false)}>
-                Solicitar Cotización
-              </Link>
-            </Button>
           </nav>
         </div>
       )}

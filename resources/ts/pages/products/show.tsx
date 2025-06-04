@@ -149,17 +149,6 @@ export default function ProductPage({ product }: { product: Product }) {
 
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <Button
-                  size="lg"
-                  className="bg-[#2C87CD] hover:bg-[#1c6aa6]"
-                  asChild
-                >
-                  <Link href="/contacto">Solicitar Cotización</Link>
-                </Button>
-                <Button size="lg" variant="outline">
-                  <Heart className="h-4 w-4 mr-2" />
-                  Añadir a favoritos
-                </Button>
                 <Button size="icon" variant="ghost">
                   <Share2 className="h-5 w-5" />
                   <span className="sr-only">Compartir</span>

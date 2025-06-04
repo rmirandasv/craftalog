@@ -12,13 +12,6 @@ export default function CTASection() {
             necesidades específicas.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button
-              size="lg"
-              className="bg-[#2C87CD] hover:bg-[#1c6aa6]"
-              asChild
-            >
-              <Link href="/contacto">Solicitar Cotización</Link>
-            </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/productos">Ver Catálogo Completo</Link>
             </Button>

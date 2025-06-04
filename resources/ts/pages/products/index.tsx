@@ -251,12 +251,6 @@ export default function ProductsPage({
                         <p className="text-sm text-gray-600 line-clamp-2">
                           {product.short_description}
                         </p>
-                        <Button
-                          variant="link"
-                          className="p-0 h-auto text-[#2C87CD]"
-                        >
-                          Solicitar cotización
-                        </Button>
                       </div>
                     </CardContent>
                   </Link>
