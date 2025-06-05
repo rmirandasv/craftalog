@@ -55,4 +55,5 @@ export type Product = {
 
 export type SharedData = {
   categories: Category[];
+  brands: Brand[];
 }
