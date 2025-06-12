@@ -19,5 +19,5 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-
 Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
+

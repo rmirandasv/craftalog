@@ -30,6 +30,7 @@ class Product extends Model
         'images',
         'attributes',
         'brand_id',
+        'categpry_id',
     ];
 
     protected function casts(): array
@@ -46,9 +47,9 @@ class Product extends Model
         ];
     }
 
-    public function categories(): BelongsToMany
+    public function category(): BelongsTo
     {
-        return $this->belongsToMany(Category::class, 'category_product');
+        return $this->belongsTo(Category::class);
     }
 
     public function brand(): BelongsTo

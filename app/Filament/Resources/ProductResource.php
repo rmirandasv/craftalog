@@ -36,9 +36,8 @@ class ProductResource extends Resource
                         ->required(),
                     Forms\Components\TextInput::make('slug')
                         ->required(),
-                    Forms\Components\Select::make('categories')
-                        ->relationship('categories', 'name')
-                        ->multiple()
+                    Forms\Components\Select::make('category')
+                        ->relationship('category', 'name')
                         ->preload()
                         ->columnSpanFull(),
                     Forms\Components\RichEditor::make('description')
@@ -92,10 +91,8 @@ class ProductResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('categories.name')
-                    ->listWithLineBreaks()
-                    ->limitList(3)
-                    ->expandableLimitedList(),
+                Tables\Columns\TextColumn::make('category.name')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('short_description')
                     ->limit(30)
                     ->searchable(),
@@ -113,8 +110,8 @@ class ProductResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('categories.name')
-                    ->relationship('categories', 'name')
+                Tables\Filters\SelectFilter::make('category.name')
+                    ->relationship('category', 'name')
                     ->multiple()
                     ->preload(),
             ])

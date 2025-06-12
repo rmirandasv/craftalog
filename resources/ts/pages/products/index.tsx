@@ -22,6 +22,7 @@ import { Link } from "@inertiajs/react";
 import AppLayout from "@/components/layouts/app-layout";
 import { Brand, Category, Paginated, Product } from "@/types";
 import { Pagination } from "@/components/pagination";
+import { useFilters } from "@/hooks/use-filters";
 
 export default function ProductsPage({
   products,
@@ -29,10 +30,14 @@ export default function ProductsPage({
   brands,
 }: {
   products: Paginated<Product>;
-  categories: Category[],
+  categories: Category[];
   brands: Brand[];
 }) {
-  console.log(products.data);
+  const { toggleFilterValue, isFilterActive, clearFilters } = useFilters(
+    { categories: [], brands: [] },
+    { visitOnChange: true }
+  );
+
   return (
     <AppLayout>
       <div className="container mx-auto px-4 py-8">
@@ -133,9 +138,20 @@ export default function ProductsPage({
                 <h4 className="font-medium">Categorías</h4>
                 <div className="space-y-2">
                   {categories.map((category) => (
-                    <div key={category.id} className="flex items-center space-x-2">
-                      <Checkbox id={`category-${category.id}`} />
-                      <Label htmlFor={`category-${category}`}>{category.name}</Label>
+                    <div
+                      key={category.id}
+                      className="flex items-center space-x-2"
+                    >
+                      <Checkbox
+                        id={`category-${category.id}`}
+                        onCheckedChange={() =>
+                          toggleFilterValue("categories", category.id.toString())
+                        }
+                        checked={isFilterActive("categories", category.id.toString())}
+                      />
+                      <Label htmlFor={`category-${category.id}`}>
+                        {category.name}
+                      </Label>
                     </div>
                   ))}
                 </div>
@@ -146,14 +162,20 @@ export default function ProductsPage({
                 <div className="space-y-2">
                   {brands.map((brand) => (
                     <div key={brand.id} className="flex items-center space-x-2">
-                      <Checkbox id={`brand-${brand.id}`} />
+                      <Checkbox
+                        id={`brand-${brand.id}`}
+                        onCheckedChange={() =>
+                          toggleFilterValue("brands", brand.id.toString())
+                        }
+                        checked={isFilterActive("brands", brand.id.toString())}
+                      />
                       <Label htmlFor={`brand-${brand.id}`}>{brand.name}</Label>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full" onClick={(() => clearFilters())}>
                 Limpiar Filtros
               </Button>
             </div>

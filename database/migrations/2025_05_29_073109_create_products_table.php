@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('short_description', 255);
             $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('sku')->unique()->nullable();
             $table->decimal('price')->nullable();
             $table->decimal('compare_at_price')->nullable();
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
