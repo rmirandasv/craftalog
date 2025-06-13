@@ -33,5 +33,10 @@ jobs:
 
       - name: Push changes
         run: |
-          git push
-          git push --tags
+          if [ -n "$(git status --porcelain)" ]; then
+            git add CHANGELOG.md
+            git commit -m "chore(release): update changelog"
+            git push
+          else
+            echo "No changes detected, skipping changelog update."
+          fi
