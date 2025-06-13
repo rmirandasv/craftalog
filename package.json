@@ -2,6 +2,10 @@
   "$schema": "https://json.schemastore.org/package.json",
   "private": true,
   "type": "module",
+  "name": "craftalog",
+  "version": "0.1.0",
+  "author": "Ronald Miranda <github.com/rmirandasv>",
+  "license": "MIT",
   "scripts": {
     "build": "vite build",
     "dev": "vite",
