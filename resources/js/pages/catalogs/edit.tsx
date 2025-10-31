@@ -1,0 +1,46 @@
+import CatalogForm from '@/components/catalogs/catalog-form';
+import Heading from '@/components/heading';
+import AppLayout from '@/layouts/app-layout';
+import { edit, index, update } from '@/routes/catalogs';
+import { BreadcrumbItem, Catalog, Product } from '@/types';
+
+export default function CatalogsEdit({
+  catalog,
+  products,
+}: {
+  catalog: Catalog;
+  products: Product[];
+}) {
+  const breadcrumbs: BreadcrumbItem[] = [
+    {
+      title: 'Catalogs',
+      href: index().url,
+    },
+    {
+      title: 'Edit Catalog',
+      href: edit(catalog.id).url,
+    },
+  ];
+
+  return (
+    <AppLayout breadcrumbs={breadcrumbs}>
+      <div className="px-4 py-6">
+        <Heading title="Edit Catalog" />
+        <div className="mt-6">
+          <CatalogForm
+            formProps={update.form.put(catalog.id)}
+            submitLabel="Save Changes"
+            products={products}
+            defaultValues={{
+              name: catalog.name,
+              company_name: catalog.company_name,
+              company_logo: catalog.company_logo,
+              description: catalog.description,
+              productIds: catalog.products?.map((p) => p.id) || [],
+            }}
+          />
+        </div>
+      </div>
+    </AppLayout>
+  );
+}
