@@ -99,5 +99,5 @@ export interface Catalog {
   description: string;
   created_at: string;
   updated_at: string;
-  products: CatalogProduct[];
+  products: Product[];
 }

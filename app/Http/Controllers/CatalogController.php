@@ -19,7 +19,7 @@ class CatalogController extends Controller
     {
         Gate::authorize('viewAny', Catalog::class);
 
-        $catalogs = Catalog::with('products')->paginate();
+        $catalogs = Catalog::with('products.category')->paginate();
 
         return Inertia::render('catalogs/index', [
             'catalogs' => $catalogs,
