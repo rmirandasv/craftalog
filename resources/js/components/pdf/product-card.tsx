@@ -1,39 +1,43 @@
-import { View, Text, Image } from "@react-pdf/renderer"
-import type { Product } from "@/types";
+import type { Product } from '@/types';
+import { Image, Text, View } from '@react-pdf/renderer';
 
 interface ProductCardProps {
-  product: Product
-  layout: "single" | "double" | "triple"
+  product: Product;
+  layout: 'single' | 'double' | 'triple';
   colors: {
-    primary: string
-    secondary: string
-    accent: string
-    text: string
-    background: string
-  }
+    primary: string;
+    secondary: string;
+    accent: string;
+    text: string;
+    background: string;
+  };
 }
 
-export function ProductCard({ product, layout = "single", colors }: ProductCardProps) {
+export function ProductCard({
+  product,
+  layout = 'single',
+  colors,
+}: ProductCardProps) {
   const getLayoutStyles = () => {
     switch (layout) {
-      case "single":
+      case 'single':
         return {
           container: {
-            width: "100%",
+            width: '100%',
             padding: 30,
-            backgroundColor: "#ffffff",
+            backgroundColor: '#ffffff',
             borderRadius: 8,
             border: `2px solid ${colors.accent}`,
           },
           imageContainer: {
-            width: "100%",
+            width: '100%',
             height: 350,
             marginBottom: 25,
             borderRadius: 6,
           },
           name: {
             fontSize: 28,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.primary,
             marginBottom: 15,
           },
@@ -45,7 +49,7 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
           },
           price: {
             fontSize: 32,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.accent,
           },
           metadata: {
@@ -53,25 +57,25 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
             color: colors.secondary,
             marginTop: 15,
           },
-        }
-      case "double":
+        };
+      case 'double':
         return {
           container: {
-            width: "48%",
+            width: '48%',
             padding: 20,
-            backgroundColor: "#ffffff",
+            backgroundColor: '#ffffff',
             borderRadius: 6,
             border: `1.5px solid ${colors.accent}`,
           },
           imageContainer: {
-            width: "100%",
+            width: '100%',
             height: 200,
             marginBottom: 15,
             borderRadius: 4,
           },
           name: {
             fontSize: 18,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.primary,
             marginBottom: 10,
           },
@@ -83,7 +87,7 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
           },
           price: {
             fontSize: 22,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.accent,
           },
           metadata: {
@@ -91,25 +95,25 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
             color: colors.secondary,
             marginTop: 10,
           },
-        }
-      case "triple":
+        };
+      case 'triple':
         return {
           container: {
-            width: "31%",
+            width: '31%',
             padding: 15,
-            backgroundColor: "#ffffff",
+            backgroundColor: '#ffffff',
             borderRadius: 4,
             border: `1px solid ${colors.accent}`,
           },
           imageContainer: {
-            width: "100%",
+            width: '100%',
             height: 140,
             marginBottom: 12,
             borderRadius: 3,
           },
           name: {
             fontSize: 14,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.primary,
             marginBottom: 8,
           },
@@ -121,7 +125,7 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
           },
           price: {
             fontSize: 18,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.accent,
           },
           metadata: {
@@ -129,25 +133,25 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
             color: colors.secondary,
             marginTop: 8,
           },
-        }
+        };
       default:
         return {
           container: {
-            width: "100%",
+            width: '100%',
             padding: 30,
-            backgroundColor: "#ffffff",
+            backgroundColor: '#ffffff',
             borderRadius: 8,
             border: `2px solid ${colors.accent}`,
           },
           imageContainer: {
-            width: "100%",
+            width: '100%',
             height: 350,
             marginBottom: 25,
             borderRadius: 6,
           },
           name: {
             fontSize: 28,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.primary,
             marginBottom: 15,
           },
@@ -159,7 +163,7 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
           },
           price: {
             fontSize: 32,
-            fontWeight: "bold",
+            fontWeight: 'bold',
             color: colors.accent,
           },
           metadata: {
@@ -167,28 +171,32 @@ export function ProductCard({ product, layout = "single", colors }: ProductCardP
             color: colors.secondary,
             marginTop: 15,
           },
-        }
+        };
     }
-  }
+  };
 
-  const layoutStyles = getLayoutStyles()
+  const layoutStyles = getLayoutStyles();
 
   return (
     <View style={layoutStyles.container}>
       <View style={layoutStyles.imageContainer}>
         <Image
-          src={product.image || "/placeholder.svg"}
-          style={{ width: "100%", height: "100%" }}
+          src={product.image || '/placeholder.svg'}
+          style={{ width: '100%', height: '100%' }}
         />
       </View>
       <Text style={layoutStyles.name}>{product.name}</Text>
       <Text style={layoutStyles.description}>{product.description}</Text>
       {product.price && (
-        <Text style={layoutStyles.price}>${product.price.toLocaleString("es-ES", { minimumFractionDigits: 2 })}</Text>
+        <Text style={layoutStyles.price}>
+          ${product.price.toLocaleString('es-ES', { minimumFractionDigits: 2 })}
+        </Text>
       )}
       {product.category && (
-        <Text style={layoutStyles.metadata}>Categoría: {product.category.name}</Text>
+        <Text style={layoutStyles.metadata}>
+          Categoría: {product.category.name}
+        </Text>
       )}
     </View>
-  )
+  );
 }

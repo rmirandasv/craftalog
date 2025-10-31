@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
-import { create, edit, index } from '@/routes/catalogs';
+import { create, edit, index, show } from '@/routes/catalogs';
 import { BreadcrumbItem, Catalog, Paginated } from '@/types';
 import { Link } from '@inertiajs/react';
 import { BookOpen, Building2, Edit, Plus } from 'lucide-react';
@@ -70,10 +70,12 @@ export default function CatalogsIndex({
                         </div>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2 truncate leading-none font-medium">
-                          <BookOpen className="size-4 text-muted-foreground" />
-                          {catalog.name}
-                        </div>
+                        <Link href={show(catalog.id).url}>
+                          <div className="flex items-center gap-2 truncate leading-none font-medium hover:text-primary">
+                            <BookOpen className="size-4 text-muted-foreground" />
+                            {catalog.name}
+                          </div>
+                        </Link>
                         <div className="mt-1 flex items-center gap-2 truncate text-sm text-muted-foreground">
                           <Building2 className="size-3" />
                           {catalog.company_name}

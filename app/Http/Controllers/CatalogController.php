@@ -26,6 +26,17 @@ class CatalogController extends Controller
         ]);
     }
 
+    public function show(Catalog $catalog): Response
+    {
+        Gate::authorize('view', $catalog);
+
+        $catalog->load('products.category');
+
+        return Inertia::render('catalogs/show', [
+            'catalog' => $catalog,
+        ]);
+    }
+
     public function create(): Response
     {
         Gate::authorize('create', Catalog::class);

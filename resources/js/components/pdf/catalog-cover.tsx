@@ -1,20 +1,26 @@
-import { Page, Text, View, StyleSheet } from "@react-pdf/renderer"
+import { Page, StyleSheet, Text, View } from '@react-pdf/renderer';
 
 interface CatalogCoverProps {
-  companyName: string
-  catalogName: string
-  createdDate: Date
-  updatedDate: Date
+  companyName: string;
+  catalogName: string;
+  createdDate: Date;
+  updatedDate: Date;
   colors: {
-    primary: string
-    secondary: string
-    accent: string
-    text: string
-    background: string
-  }
+    primary: string;
+    secondary: string;
+    accent: string;
+    text: string;
+    background: string;
+  };
 }
 
-export function CatalogCover({ companyName, catalogName, createdDate, updatedDate, colors }: CatalogCoverProps) {
+export function CatalogCover({
+  companyName,
+  catalogName,
+  createdDate,
+  updatedDate,
+  colors,
+}: CatalogCoverProps) {
   const styles = StyleSheet.create({
     page: {
       backgroundColor: colors.background,
@@ -22,26 +28,26 @@ export function CatalogCover({ companyName, catalogName, createdDate, updatedDat
     },
     companyName: {
       fontSize: 48,
-      fontWeight: "bold",
+      fontWeight: 'bold',
       color: colors.primary,
       marginBottom: 20,
-      textAlign: "center",
+      textAlign: 'center',
     },
     catalogName: {
       fontSize: 32,
       color: colors.secondary,
       marginBottom: 60,
-      textAlign: "center",
+      textAlign: 'center',
     },
     divider: {
-      width: "60%",
+      width: '60%',
       height: 2,
       backgroundColor: colors.accent,
       marginVertical: 40,
     },
     dateContainer: {
-      flexDirection: "column",
-      alignItems: "center",
+      flexDirection: 'column',
+      alignItems: 'center',
     },
     dateLabel: {
       fontSize: 12,
@@ -52,21 +58,27 @@ export function CatalogCover({ companyName, catalogName, createdDate, updatedDat
     dateValue: {
       fontSize: 16,
       color: colors.text,
-      fontWeight: "bold",
+      fontWeight: 'bold',
     },
-  })
+  });
 
   const formatDate = (date: Date) => {
-    return date.toLocaleDateString("es-ES", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })
-  }
+    return date.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
 
   return (
     <Page size="A4" style={styles.page}>
-      <View style={{ flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+      <View
+        style={{
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Text style={styles.companyName}>{companyName}</Text>
         <Text style={styles.catalogName}>{catalogName}</Text>
         <View style={styles.divider} />
@@ -81,5 +93,5 @@ export function CatalogCover({ companyName, catalogName, createdDate, updatedDat
         </View>
       </View>
     </Page>
-  )
+  );
 }
