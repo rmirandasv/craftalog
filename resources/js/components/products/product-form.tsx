@@ -83,13 +83,13 @@ export default function ProductForm({
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="image">Image URL</Label>
+                <Label htmlFor="image">Image</Label>
                 <Input
                   id="image"
-                  type="url"
+                  type="file"
                   name="image"
-                  placeholder="https://example.com/image.jpg"
-                  defaultValue={defaultValues?.image}
+                  accept="image/*"
+                  className="cursor-pointer border-2 border-gray-300 rounded-md p-2"
                 />
                 <InputError message={errors.image} />
               </div>

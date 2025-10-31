@@ -15,6 +15,10 @@ class UpdateProduct
 
         $data = $this->validate($data);
 
+        if (isset($data['image'])) {
+            $data['image'] = $data['image']->store('products', 'public');
+        }
+
         $product->update($data);
     }
 }

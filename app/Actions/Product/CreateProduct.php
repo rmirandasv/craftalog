@@ -20,6 +20,10 @@ class CreateProduct
             'user_id' => Auth::user()->id,
         ]);
 
+        if (isset($data['image'])) {
+            $data['image'] = $data['image']->store('products', 'public');
+        }
+
         return Product::create($data);
     }
 }

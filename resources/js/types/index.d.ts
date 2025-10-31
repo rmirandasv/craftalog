@@ -77,7 +77,8 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  image: string;
+  image: string | null;
+  image_url: string;
   created_at: string;
   updated_at: string;
   category: ProductCategory;
