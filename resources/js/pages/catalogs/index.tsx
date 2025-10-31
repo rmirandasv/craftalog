@@ -98,9 +98,6 @@ export default function CatalogsIndex({
                       </div>
                     </div>
                     <div className="flex flex-shrink-0 items-center gap-2">
-                      {catalog.products && catalog.products.length > 0 && (
-                        <DownloadPdfButton catalog={catalog} />
-                      )}
                       <Button variant="ghost" size="sm" asChild>
                         <Link href={edit(catalog.id).url}>
                           <Edit />
