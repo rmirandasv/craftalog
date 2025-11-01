@@ -15,6 +15,10 @@ class UpdateCatalog
 
         $data = $this->validate($data);
 
+        if (isset($data['cover_image'])) {
+            $data['cover_image'] = $data['cover_image']->store('catalogs', 'public');
+        }
+
         $catalog->update($data);
 
         if (isset($data['products'])) {

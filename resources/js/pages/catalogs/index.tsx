@@ -58,10 +58,10 @@ export default function CatalogsIndex({
                     <div className="flex min-w-0 flex-1 items-center gap-3">
                       <div className="flex-shrink-0">
                         <div className="flex size-16 items-center justify-center rounded-md border border-border bg-muted">
-                          {catalog.company_logo ? (
+                          {catalog.cover_image ? (
                             <img
-                              src={catalog.company_logo}
-                              alt={catalog.company_name}
+                              src={catalog.cover_image}
+                              alt={catalog.name}
                               className="size-full rounded-md object-cover"
                             />
                           ) : (

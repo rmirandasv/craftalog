@@ -34,7 +34,7 @@ export default function CatalogsEdit({
             defaultValues={{
               name: catalog.name,
               company_name: catalog.company_name,
-              company_logo: catalog.company_logo,
+              cover_image: catalog.cover_image,
               description: catalog.description,
               productIds: catalog.products?.map((p) => p.id) || [],
             }}

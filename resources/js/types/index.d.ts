@@ -96,7 +96,7 @@ export interface Catalog {
   id: number;
   name: string;
   company_name: string;
-  company_logo: string;
+  cover_image: string;
   description: string;
   created_at: string;
   updated_at: string;

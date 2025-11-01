@@ -26,6 +26,10 @@ class CreateCatalog
             $catalog->products()->attach($data['products']);
         }
 
+        if (isset($data['cover_image'])) {
+            $catalog->cover_image = $data['cover_image']->store('catalogs', 'public');
+        }
+
         return $catalog;
     }
 }

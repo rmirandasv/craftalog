@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,7 +12,7 @@ class Catalog extends Model
     protected $fillable = [
         'name',
         'company_name',
-        'company_logo',
+        'cover_image',
         'description',
         'user_id',
     ];
@@ -29,5 +30,12 @@ class Catalog extends Model
             'catalog_id',
             'product_id'
         )->withTimestamps();
+    }
+
+    public function companyLogo(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value ? asset('storage/' . $value) : null,
+        );
     }
 }

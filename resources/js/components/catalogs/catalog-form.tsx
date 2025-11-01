@@ -16,7 +16,7 @@ type CatalogFormProps = {
   defaultValues?: {
     name?: string;
     company_name?: string;
-    company_logo?: string;
+    cover_image?: string;
     description?: string;
     productIds?: number[];
   };
@@ -65,15 +65,15 @@ export default function CatalogForm({
                   </div>
 
                   <div className="grid gap-2">
-                    <Label htmlFor="company_logo">Company Logo URL</Label>
-                    <Input
-                      id="company_logo"
-                      type="url"
-                      name="company_logo"
-                      placeholder="https://example.com/logo.png"
-                      defaultValue={defaultValues?.company_logo}
+                    <Label htmlFor="cover_image">Company Logo URL</Label>
+                      <Input
+                      id="cover_image"
+                      type="file"
+                      name="cover_image"
+                      accept="image/*"
+                      className="cursor-pointer border-2 border-gray-300 rounded-md p-2"
                     />
-                    <InputError message={errors.company_logo} />
+                    <InputError message={errors.cover_image} />
                   </div>
 
                   <div className="grid gap-2">

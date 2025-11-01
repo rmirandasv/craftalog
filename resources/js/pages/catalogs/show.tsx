@@ -27,10 +27,10 @@ export default function CatalogShow({ catalog }: { catalog: Catalog }) {
         <div className="mb-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-4">
             <div className="flex size-24 items-center justify-center rounded-xl border-2 border-border bg-muted">
-              {catalog.company_logo ? (
+              {catalog.cover_image ? (
                 <img
-                  src={catalog.company_logo}
-                  alt={catalog.company_name}
+                  src={catalog.cover_image}
+                  alt={catalog.name}
                   className="size-full rounded-xl object-cover"
                 />
               ) : (
