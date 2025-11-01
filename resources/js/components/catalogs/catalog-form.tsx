@@ -2,11 +2,12 @@ import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
+import { ColorPicker } from '@/components/ui/color-picker';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import { Textarea } from '@/components/ui/textarea';
-import { Product } from '@/types';
+import { CatalogColors, Product } from '@/types';
 import { Form } from '@inertiajs/react';
 
 type CatalogFormProps = {
@@ -19,6 +20,8 @@ type CatalogFormProps = {
     cover_image?: string;
     description?: string;
     productIds?: number[];
+    colors?: CatalogColors;
+    products_per_page?: number;
   };
 };
 
@@ -86,6 +89,68 @@ export default function CatalogForm({
                       rows={4}
                     />
                     <InputError message={errors.description} />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base">Customization</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid gap-6">
+                  <div className="grid gap-2">
+                    <Label htmlFor="products_per_page">Products per Page</Label>
+                    <Input
+                      id="products_per_page"
+                      type="number"
+                      name="products_per_page"
+                      min="1"
+                      max="12"
+                      defaultValue={defaultValues?.products_per_page || 3}
+                      placeholder="3"
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      Number of products to display per page in the PDF (1-12)
+                    </p>
+                    <InputError message={errors.products_per_page} />
+                  </div>
+
+                  <div className="border-t pt-6">
+                    <h4 className="mb-4 text-sm font-medium">Color Scheme</h4>
+                    <div className="grid gap-6">
+                      <ColorPicker
+                        id="color-primary"
+                        name="colors[primary]"
+                        label="Primary Color"
+                        defaultValue={defaultValues?.colors?.primary || '#1e40af'}
+                      />
+                      <ColorPicker
+                        id="color-secondary"
+                        name="colors[secondary]"
+                        label="Secondary Color"
+                        defaultValue={defaultValues?.colors?.secondary || '#6b7280'}
+                      />
+                      <ColorPicker
+                        id="color-accent"
+                        name="colors[accent]"
+                        label="Accent Color"
+                        defaultValue={defaultValues?.colors?.accent || '#3b82f6'}
+                      />
+                      <ColorPicker
+                        id="color-text"
+                        name="colors[text]"
+                        label="Text Color"
+                        defaultValue={defaultValues?.colors?.text || '#1f2937'}
+                      />
+                      <ColorPicker
+                        id="color-background"
+                        name="colors[background]"
+                        label="Background Color"
+                        defaultValue={defaultValues?.colors?.background || '#f9fafb'}
+                      />
+                    </div>
                   </div>
                 </div>
               </CardContent>

@@ -16,6 +16,7 @@ class Catalog extends Model
         'description',
         'user_id',
         'colors',
+        'products_per_page',
     ];
 
     protected $casts = [

@@ -17,11 +17,14 @@ interface CatalogDocumentProps {
       text: string;
       background: string;
     };
+    productsPerPage?: number;
   };
   products: Product[];
 }
 
 export function CatalogDocument({ config, products }: CatalogDocumentProps) {
+  const productsPerPage = config.productsPerPage || 3;
+
   const styles = StyleSheet.create({
     page: {
       backgroundColor: config.colors.background,
@@ -42,8 +45,8 @@ export function CatalogDocument({ config, products }: CatalogDocumentProps) {
 
   const chunkProducts = () => {
     const chunks = [];
-    for (let i = 0; i < products.length; i += 3) {
-      chunks.push(products.slice(i, i + 3));
+    for (let i = 0; i < products.length; i += productsPerPage) {
+      chunks.push(products.slice(i, i + productsPerPage));
     }
     return chunks;
   };

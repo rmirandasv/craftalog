@@ -37,6 +37,8 @@ export default function CatalogsEdit({
               cover_image: catalog.cover_image,
               description: catalog.description,
               productIds: catalog.products?.map((p) => p.id) || [],
+              colors: catalog.colors,
+              products_per_page: catalog.products_per_page,
             }}
           />
         </div>

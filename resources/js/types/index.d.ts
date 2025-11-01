@@ -92,6 +92,14 @@ export interface CatalogProduct {
   updated_at: string;
 }
 
+export interface CatalogColors {
+  primary: string;
+  secondary: string;
+  accent: string;
+  text: string;
+  background: string;
+}
+
 export interface Catalog {
   id: number;
   name: string;
@@ -101,11 +109,6 @@ export interface Catalog {
   created_at: string;
   updated_at: string;
   products: Product[];
-  colors: {
-    primary: string;
-    secondary: string;
-    accent: string;
-    text: string;
-    background: string;
-  };
+  colors: CatalogColors;
+  products_per_page: number;
 }

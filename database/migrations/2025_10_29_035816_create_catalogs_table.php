@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('cover_image')->nullable();
             $table->json('colors')->nullable();
+            $table->integer('products_per_page')->default(1);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
