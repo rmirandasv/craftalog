@@ -9,6 +9,7 @@ interface ColorPickerProps {
   label: string;
   defaultValue?: string;
   className?: string;
+  onChange?: (value: string) => void;
 }
 
 export function ColorPicker({
@@ -17,6 +18,7 @@ export function ColorPicker({
   label,
   defaultValue = '#000000',
   className,
+  onChange,
 }: ColorPickerProps) {
   const [color, setColor] = useState(defaultValue);
   const [textValue, setTextValue] = useState(defaultValue);
@@ -24,6 +26,7 @@ export function ColorPicker({
   const handleColorChange = (newColor: string) => {
     setColor(newColor);
     setTextValue(newColor);
+    onChange?.(newColor);
   };
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,6 +42,7 @@ export function ColorPicker({
     // Only update the color picker if it's a valid hex color
     if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
       setColor(value);
+      onChange?.(value);
     }
   };
 

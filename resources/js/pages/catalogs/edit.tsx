@@ -1,4 +1,4 @@
-import CatalogForm from '@/components/catalogs/catalog-form';
+import CatalogFormWithPreview from '@/components/catalogs/catalog-form-with-preview';
 import Heading from '@/components/heading';
 import AppLayout from '@/layouts/app-layout';
 import { edit, index, update } from '@/routes/catalogs';
@@ -25,23 +25,21 @@ export default function CatalogsEdit({
   return (
     <AppLayout breadcrumbs={breadcrumbs}>
       <div className="px-4 py-6">
-        <Heading title="Edit Catalog" />
-        <div className="mt-6">
-          <CatalogForm
-            formProps={update.form.put(catalog.id)}
-            submitLabel="Save Changes"
-            products={products}
-            defaultValues={{
-              name: catalog.name,
-              company_name: catalog.company_name,
-              cover_image: catalog.cover_image,
-              description: catalog.description,
-              productIds: catalog.products?.map((p) => p.id) || [],
-              colors: catalog.colors,
-              products_per_page: catalog.products_per_page,
-            }}
-          />
-        </div>
+        <Heading title="Edit Catalog" className="mb-6" />
+        <CatalogFormWithPreview
+          formProps={update.form.put(catalog.id)}
+          submitLabel="Save Changes"
+          products={products}
+          defaultValues={{
+            name: catalog.name,
+            company_name: catalog.company_name,
+            cover_image: catalog.cover_image,
+            description: catalog.description,
+            productIds: catalog.products?.map((p) => p.id) || [],
+            colors: catalog.colors,
+            products_per_page: catalog.products_per_page,
+          }}
+        />
       </div>
     </AppLayout>
   );
