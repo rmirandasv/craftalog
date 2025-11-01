@@ -1,8 +1,9 @@
-import { Page, StyleSheet, Text, View } from '@react-pdf/renderer';
+import { Image, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
 
 interface CatalogCoverProps {
   companyName: string;
   catalogName: string;
+  coverImage: string;
   createdDate: Date;
   updatedDate: Date;
   colors: {
@@ -17,6 +18,7 @@ interface CatalogCoverProps {
 export function CatalogCover({
   companyName,
   catalogName,
+  coverImage,
   createdDate,
   updatedDate,
   colors,
@@ -79,6 +81,12 @@ export function CatalogCover({
           alignItems: 'center',
         }}
       >
+        {coverImage && (
+          <Image
+            src={coverImage}
+          style={{ width: '100%', height: '100%' }}
+        />
+        )}
         <Text style={styles.companyName}>{companyName}</Text>
         <Text style={styles.catalogName}>{catalogName}</Text>
         <View style={styles.divider} />

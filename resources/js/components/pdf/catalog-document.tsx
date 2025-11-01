@@ -5,6 +5,7 @@ import { CatalogCover } from './catalog-cover';
 
 interface CatalogDocumentProps {
   config: {
+    coverImage: string;
     companyName: string;
     catalogName: string;
     createdDate: Date;
@@ -52,6 +53,7 @@ export function CatalogDocument({ config, products }: CatalogDocumentProps) {
   return (
     <Document>
       <CatalogCover
+        coverImage={config.coverImage}
         companyName={config.companyName}
         catalogName={config.catalogName}
         createdDate={config.createdDate}

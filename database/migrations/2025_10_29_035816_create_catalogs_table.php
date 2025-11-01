@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('description')->nullable();
             $table->string('cover_image')->nullable();
+            $table->json('colors')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

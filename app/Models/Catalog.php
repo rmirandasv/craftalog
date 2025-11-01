@@ -15,6 +15,11 @@ class Catalog extends Model
         'cover_image',
         'description',
         'user_id',
+        'colors',
+    ];
+
+    protected $casts = [
+        'colors' => 'array',
     ];
 
     public function user(): BelongsTo
@@ -32,7 +37,7 @@ class Catalog extends Model
         )->withTimestamps();
     }
 
-    public function companyLogo(): Attribute
+    public function coverImage(): Attribute
     {
         return Attribute::make(
             get: fn ($value) => $value ? asset('storage/' . $value) : null,
