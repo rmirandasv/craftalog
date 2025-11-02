@@ -11,21 +11,26 @@ type DownloadPdfButtonProps = {
 export default function DownloadPdfButton({ catalog }: DownloadPdfButtonProps) {
   return (
     <PDFDownloadLink
-      document={<CatalogDocument config={{
-        companyName: catalog.company_name || 'Company',
-        catalogName: catalog.name,
-        coverImage: catalog.cover_image || '',
-        createdDate: new Date(catalog.created_at),
-        updatedDate: new Date(catalog.updated_at),
-        colors: catalog.colors || {
-          primary: '#000000',
-          secondary: '#666666',
-          accent: '#0066cc',
-          text: '#333333',
-          background: '#f8f9fa',
-        },
-        productsPerPage: catalog.products_per_page || 3,
-      }} products={catalog.products} />}
+      document={
+        <CatalogDocument
+          config={{
+            companyName: catalog.company_name || 'Company',
+            catalogName: catalog.name,
+            coverImage: catalog.cover_image || '',
+            createdDate: new Date(catalog.created_at),
+            updatedDate: new Date(catalog.updated_at),
+            colors: catalog.colors || {
+              primary: '#000000',
+              secondary: '#666666',
+              accent: '#0066cc',
+              text: '#333333',
+              background: '#f8f9fa',
+            },
+            productsPerPage: catalog.products_per_page || 3,
+          }}
+          products={catalog.products}
+        />
+      }
       fileName={`${catalog.name.replace(/\s+/g, '_')}.pdf`}
     >
       {({ blob, url, loading, error }) => (

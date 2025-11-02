@@ -2,10 +2,10 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
+import { dashboard } from '@/routes';
 import { create as createCatalog } from '@/routes/catalogs';
 import { create as createCategory } from '@/routes/categories';
 import { create as createProduct } from '@/routes/products';
-import { dashboard } from '@/routes';
 import { type BreadcrumbItem, Product } from '@/types';
 import { Head, Link } from '@inertiajs/react';
 import {
@@ -200,10 +200,12 @@ export default function Dashboard({
                           <BookOpen className="h-6 w-6 text-muted-foreground" />
                         )}
                       </div>
-                      <div className="flex-1 min-w-0">
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <div className="min-w-0 flex-1">
-                            <p className="truncate font-medium">{catalog.name}</p>
+                            <p className="truncate font-medium">
+                              {catalog.name}
+                            </p>
                             {catalog.company_name && (
                               <p className="truncate text-sm text-muted-foreground">
                                 {catalog.company_name}
@@ -212,15 +214,20 @@ export default function Dashboard({
                           </div>
                           <Badge variant="secondary">
                             {catalog.products_count}{' '}
-                            {catalog.products_count === 1 ? 'product' : 'products'}
+                            {catalog.products_count === 1
+                              ? 'product'
+                              : 'products'}
                           </Badge>
                         </div>
                         <p className="mt-1 text-xs text-muted-foreground">
                           Updated{' '}
-                          {new Date(catalog.updated_at).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                          })}
+                          {new Date(catalog.updated_at).toLocaleDateString(
+                            'en-US',
+                            {
+                              month: 'short',
+                              day: 'numeric',
+                            },
+                          )}
                         </p>
                       </div>
                     </Link>
@@ -268,7 +275,7 @@ export default function Dashboard({
                           <Package className="h-6 w-6 text-muted-foreground" />
                         )}
                       </div>
-                      <div className="flex-1 min-w-0">
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <p className="truncate font-medium">{product.name}</p>
                           {product.price && (

@@ -176,7 +176,7 @@ export function CatalogCover({
     <Page size="A4" style={styles.page}>
       <View style={styles.topAccent} />
       <View style={styles.backgroundShape} />
-      
+
       {/* Decorative corners */}
       <View style={[styles.cornerDecoration, styles.topLeftCorner]} />
       <View style={[styles.cornerDecoration, styles.bottomRightCorner]} />

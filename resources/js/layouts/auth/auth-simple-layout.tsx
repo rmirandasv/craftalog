@@ -1,7 +1,7 @@
 import { home } from '@/routes';
 import { Link } from '@inertiajs/react';
-import { type PropsWithChildren } from 'react';
 import { BookOpen } from 'lucide-react';
+import { type PropsWithChildren } from 'react';
 
 interface AuthLayoutProps {
   name?: string;
@@ -20,10 +20,7 @@ export default function AuthSimpleLayout({
         <div className="w-full max-w-md">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center gap-6">
-              <Link
-                href={home()}
-                className="flex flex-col items-center gap-3"
-              >
+              <Link href={home()} className="flex flex-col items-center gap-3">
                 <div className="flex size-14 items-center justify-center rounded-xl border-2 border-primary bg-primary/10">
                   <BookOpen className="size-7 text-primary" />
                 </div>

@@ -69,12 +69,12 @@ export default function CatalogForm({
 
                   <div className="grid gap-2">
                     <Label htmlFor="cover_image">Company Logo URL</Label>
-                      <Input
+                    <Input
                       id="cover_image"
                       type="file"
                       name="cover_image"
                       accept="image/*"
-                      className="cursor-pointer border-2 border-gray-300 rounded-md p-2"
+                      className="cursor-pointer rounded-md border-2 border-gray-300 p-2"
                     />
                     <InputError message={errors.cover_image} />
                   </div>
@@ -124,19 +124,25 @@ export default function CatalogForm({
                         id="color-primary"
                         name="colors[primary]"
                         label="Primary Color"
-                        defaultValue={defaultValues?.colors?.primary || '#1e40af'}
+                        defaultValue={
+                          defaultValues?.colors?.primary || '#1e40af'
+                        }
                       />
                       <ColorPicker
                         id="color-secondary"
                         name="colors[secondary]"
                         label="Secondary Color"
-                        defaultValue={defaultValues?.colors?.secondary || '#6b7280'}
+                        defaultValue={
+                          defaultValues?.colors?.secondary || '#6b7280'
+                        }
                       />
                       <ColorPicker
                         id="color-accent"
                         name="colors[accent]"
                         label="Accent Color"
-                        defaultValue={defaultValues?.colors?.accent || '#3b82f6'}
+                        defaultValue={
+                          defaultValues?.colors?.accent || '#3b82f6'
+                        }
                       />
                       <ColorPicker
                         id="color-text"
@@ -148,7 +154,9 @@ export default function CatalogForm({
                         id="color-background"
                         name="colors[background]"
                         label="Background Color"
-                        defaultValue={defaultValues?.colors?.background || '#f9fafb'}
+                        defaultValue={
+                          defaultValues?.colors?.background || '#f9fafb'
+                        }
                       />
                     </div>
                   </div>

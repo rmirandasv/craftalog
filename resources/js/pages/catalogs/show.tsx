@@ -1,13 +1,13 @@
-import AppLayout from '@/layouts/app-layout';
-import { BreadcrumbItem, Catalog } from '@/types';
-import { index, edit } from '@/routes/catalogs';
+import DownloadPdfButton from '@/components/catalogs/download-pdf-button';
 import Heading from '@/components/heading';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import DownloadPdfButton from '@/components/catalogs/download-pdf-button';
+import AppLayout from '@/layouts/app-layout';
+import { edit, index } from '@/routes/catalogs';
+import { BreadcrumbItem, Catalog } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Edit, Package, Building2, BookOpen, Download } from 'lucide-react';
+import { Building2, Edit, Package } from 'lucide-react';
 
 export default function CatalogShow({ catalog }: { catalog: Catalog }) {
   const breadcrumbs: BreadcrumbItem[] = [
@@ -59,22 +59,32 @@ export default function CatalogShow({ catalog }: { catalog: Catalog }) {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <div className="text-sm font-medium text-muted-foreground">Company</div>
+                <div className="text-sm font-medium text-muted-foreground">
+                  Company
+                </div>
                 <div className="text-base">{catalog.company_name}</div>
               </div>
               {catalog.description && (
                 <div>
-                  <div className="text-sm font-medium text-muted-foreground">Description</div>
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Description
+                  </div>
                   <div className="text-base">{catalog.description}</div>
                 </div>
               )}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <div className="text-sm font-medium text-muted-foreground">Products</div>
-                  <div className="text-base font-semibold">{catalog.products?.length || 0}</div>
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Products
+                  </div>
+                  <div className="text-base font-semibold">
+                    {catalog.products?.length || 0}
+                  </div>
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-muted-foreground">Created</div>
+                  <div className="text-sm font-medium text-muted-foreground">
+                    Created
+                  </div>
                   <div className="text-base">
                     {new Date(catalog.created_at).toLocaleDateString('es-ES')}
                   </div>
@@ -121,7 +131,10 @@ export default function CatalogShow({ catalog }: { catalog: Catalog }) {
                         )}
                         <div className="mt-3 flex items-center gap-2">
                           {product.price && (
-                            <Badge variant="secondary" className="font-semibold">
+                            <Badge
+                              variant="secondary"
+                              className="font-semibold"
+                            >
                               ${product.price.toFixed(2)}
                             </Badge>
                           )}

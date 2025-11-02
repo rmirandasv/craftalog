@@ -238,7 +238,10 @@ export function ProductCard({
       {product.price && (
         <View style={layoutStyles.priceContainer}>
           <Text style={layoutStyles.price}>
-            ${product.price.toLocaleString('es-ES', { minimumFractionDigits: 2 })}
+            $
+            {product.price.toLocaleString('es-ES', {
+              minimumFractionDigits: 2,
+            })}
           </Text>
         </View>
       )}

@@ -89,7 +89,7 @@ export default function ProductForm({
                   type="file"
                   name="image"
                   accept="image/*"
-                  className="cursor-pointer border-2 border-gray-300 rounded-md p-2"
+                  className="cursor-pointer rounded-md border-2 border-gray-300 p-2"
                 />
                 <InputError message={errors.image} />
               </div>

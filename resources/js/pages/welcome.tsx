@@ -1,7 +1,14 @@
 import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
-import { BookOpen, Download, FileText, Layout, Sparkles, Zap } from 'lucide-react';
+import {
+  BookOpen,
+  Download,
+  FileText,
+  Layout,
+  Sparkles,
+  Zap,
+} from 'lucide-react';
 
 export default function Welcome({
   canRegister = true,
@@ -74,8 +81,8 @@ export default function Welcome({
               </span>
             </h1>
             <p className="mb-8 text-xl text-muted-foreground sm:text-2xl">
-              Create professional, downloadable PDF catalogs for your products in
-              minutes. No design skills required.
+              Create professional, downloadable PDF catalogs for your products
+              in minutes. No design skills required.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               {auth.user ? (
@@ -119,9 +126,7 @@ export default function Welcome({
                   <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10">
                     <Layout className="size-6 text-primary" />
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold">
-                    Simple Layout
-                  </h3>
+                  <h3 className="mb-2 text-xl font-semibold">Simple Layout</h3>
                   <p className="text-muted-foreground">
                     Organize your products with an intuitive interface. Choose
                     from multiple layout options.
@@ -131,9 +136,7 @@ export default function Welcome({
                   <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10">
                     <FileText className="size-6 text-primary" />
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold">
-                    PDF Generation
-                  </h3>
+                  <h3 className="mb-2 text-xl font-semibold">PDF Generation</h3>
                   <p className="text-muted-foreground">
                     Export your catalogs as professional PDFs with one click.
                     Print-ready quality every time.
@@ -143,9 +146,7 @@ export default function Welcome({
                   <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10">
                     <Zap className="size-6 text-primary" />
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold">
-                    Lightning Fast
-                  </h3>
+                  <h3 className="mb-2 text-xl font-semibold">Lightning Fast</h3>
                   <p className="text-muted-foreground">
                     Create and update catalogs in seconds. No waiting, no
                     delays, just pure speed.
@@ -155,9 +156,7 @@ export default function Welcome({
                   <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10">
                     <Download className="size-6 text-primary" />
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold">
-                    Easy Sharing
-                  </h3>
+                  <h3 className="mb-2 text-xl font-semibold">Easy Sharing</h3>
                   <p className="text-muted-foreground">
                     Download and share your catalogs with clients, partners, or
                     stakeholders instantly.

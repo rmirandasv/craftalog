@@ -1,5 +1,4 @@
 import DeleteCatalogDialog from '@/components/catalogs/delete-catalog-dialog';
-import DownloadPdfButton from '@/components/catalogs/download-pdf-button';
 import Heading from '@/components/heading';
 import Paginator from '@/components/pagination';
 import { Badge } from '@/components/ui/badge';

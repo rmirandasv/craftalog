@@ -1,5 +1,5 @@
-import InputError from '@/components/input-error';
 import { CatalogPreview } from '@/components/catalogs/catalog-preview';
+import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -50,14 +50,17 @@ export default function CatalogFormWithPreview({
   });
 
   const selectedProducts = products.filter((p) =>
-    previewData.selectedProductIds.includes(p.id)
+    previewData.selectedProductIds.includes(p.id),
   );
 
   const handleInputChange = (field: string, value: any) => {
     setPreviewData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleColorChange = (colorField: keyof CatalogColors, value: string) => {
+  const handleColorChange = (
+    colorField: keyof CatalogColors,
+    value: string,
+  ) => {
     setPreviewData((prev) => ({
       ...prev,
       colors: { ...prev.colors, [colorField]: value },
@@ -94,7 +97,9 @@ export default function CatalogFormWithPreview({
                         name="name"
                         placeholder="My Product Catalog"
                         defaultValue={defaultValues?.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange('name', e.target.value)
+                        }
                         autoFocus
                       />
                       <InputError message={errors.name} />
@@ -122,13 +127,16 @@ export default function CatalogFormWithPreview({
                         type="file"
                         name="cover_image"
                         accept="image/*"
-                        className="cursor-pointer border-2 border-gray-300 rounded-md p-2"
+                        className="cursor-pointer rounded-md border-2 border-gray-300 p-2"
                         onChange={(e) => {
                           const file = e.target.files?.[0];
                           if (file) {
                             const reader = new FileReader();
                             reader.onloadend = () => {
-                              handleInputChange('cover_image', reader.result as string);
+                              handleInputChange(
+                                'cover_image',
+                                reader.result as string,
+                              );
                             };
                             reader.readAsDataURL(file);
                           }
@@ -159,7 +167,9 @@ export default function CatalogFormWithPreview({
                 <CardContent>
                   <div className="grid gap-6">
                     <div className="grid gap-2">
-                      <Label htmlFor="products_per_page">Products per Page</Label>
+                      <Label htmlFor="products_per_page">
+                        Products per Page
+                      </Label>
                       <Input
                         id="products_per_page"
                         type="number"
@@ -169,7 +179,10 @@ export default function CatalogFormWithPreview({
                         defaultValue={defaultValues?.products_per_page || 3}
                         placeholder="3"
                         onChange={(e) =>
-                          handleInputChange('products_per_page', parseInt(e.target.value) || 3)
+                          handleInputChange(
+                            'products_per_page',
+                            parseInt(e.target.value) || 3,
+                          )
                         }
                       />
                       <p className="text-sm text-muted-foreground">
@@ -185,36 +198,54 @@ export default function CatalogFormWithPreview({
                           id="color-primary"
                           name="colors[primary]"
                           label="Primary Color"
-                          defaultValue={defaultValues?.colors?.primary || '#1e40af'}
-                          onChange={(value) => handleColorChange('primary', value)}
+                          defaultValue={
+                            defaultValues?.colors?.primary || '#1e40af'
+                          }
+                          onChange={(value) =>
+                            handleColorChange('primary', value)
+                          }
                         />
                         <ColorPicker
                           id="color-secondary"
                           name="colors[secondary]"
                           label="Secondary Color"
-                          defaultValue={defaultValues?.colors?.secondary || '#6b7280'}
-                          onChange={(value) => handleColorChange('secondary', value)}
+                          defaultValue={
+                            defaultValues?.colors?.secondary || '#6b7280'
+                          }
+                          onChange={(value) =>
+                            handleColorChange('secondary', value)
+                          }
                         />
                         <ColorPicker
                           id="color-accent"
                           name="colors[accent]"
                           label="Accent Color"
-                          defaultValue={defaultValues?.colors?.accent || '#3b82f6'}
-                          onChange={(value) => handleColorChange('accent', value)}
+                          defaultValue={
+                            defaultValues?.colors?.accent || '#3b82f6'
+                          }
+                          onChange={(value) =>
+                            handleColorChange('accent', value)
+                          }
                         />
                         <ColorPicker
                           id="color-text"
                           name="colors[text]"
                           label="Text Color"
-                          defaultValue={defaultValues?.colors?.text || '#1f2937'}
+                          defaultValue={
+                            defaultValues?.colors?.text || '#1f2937'
+                          }
                           onChange={(value) => handleColorChange('text', value)}
                         />
                         <ColorPicker
                           id="color-background"
                           name="colors[background]"
                           label="Background Color"
-                          defaultValue={defaultValues?.colors?.background || '#f9fafb'}
-                          onChange={(value) => handleColorChange('background', value)}
+                          defaultValue={
+                            defaultValues?.colors?.background || '#f9fafb'
+                          }
+                          onChange={(value) =>
+                            handleColorChange('background', value)
+                          }
                         />
                       </div>
                     </div>
@@ -244,10 +275,13 @@ export default function CatalogFormWithPreview({
                             name="products[]"
                             value={product.id.toString()}
                             defaultChecked={defaultValues?.productIds?.includes(
-                              product.id
+                              product.id,
                             )}
                             onCheckedChange={(checked) =>
-                              handleProductToggle(product.id, checked as boolean)
+                              handleProductToggle(
+                                product.id,
+                                checked as boolean,
+                              )
                             }
                           />
                           <div className="min-w-0 flex-1">
@@ -312,4 +346,3 @@ export default function CatalogFormWithPreview({
     </div>
   );
 }
-
