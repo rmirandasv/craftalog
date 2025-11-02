@@ -17,7 +17,7 @@ class CreateCatalog
         $data = $this->validate($data);
 
         // Set default colors if not provided
-        if (!isset($data['colors']) || empty($data['colors'])) {
+        if (! isset($data['colors']) || empty($data['colors'])) {
             $data['colors'] = [
                 'primary' => '#1e40af',
                 'secondary' => '#6b7280',
@@ -28,7 +28,7 @@ class CreateCatalog
         }
 
         // Set default products per page if not provided
-        if (!isset($data['products_per_page']) || empty($data['products_per_page'])) {
+        if (! isset($data['products_per_page']) || empty($data['products_per_page'])) {
             $data['products_per_page'] = 3;
         }
 
