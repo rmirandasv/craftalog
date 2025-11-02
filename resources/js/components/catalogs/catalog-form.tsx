@@ -11,7 +11,7 @@ import { CatalogColors, Product } from '@/types';
 import { Form } from '@inertiajs/react';
 
 type CatalogFormProps = {
-  formProps: any;
+  formProps: typeof Form;
   submitLabel: string;
   products: Product[];
   defaultValues?: {

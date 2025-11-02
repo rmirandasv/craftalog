@@ -33,7 +33,7 @@ export default function DownloadPdfButton({ catalog }: DownloadPdfButtonProps) {
       }
       fileName={`${catalog.name.replace(/\s+/g, '_')}.pdf`}
     >
-      {({ blob, url, loading, error }) => (
+      {({ loading, error }) => (
         <Button variant="ghost" size="sm" disabled={loading}>
           <Download />
           {loading ? 'Generating...' : 'Download PDF'}

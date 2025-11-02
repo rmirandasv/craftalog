@@ -16,7 +16,7 @@ import { type ProductCategory } from '@/types';
 import { Form } from '@inertiajs/react';
 
 type ProductFormProps = {
-  formProps: any;
+  formProps: typeof Form;
   submitLabel: string;
   categories: ProductCategory[];
   defaultValues?: {

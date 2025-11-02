@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form } from '@inertiajs/react';
 
 type CategoryFormProps = {
-  formProps: any;
+  formProps: typeof Form;
   submitLabel: string;
   defaultValues?: {
     name?: string;

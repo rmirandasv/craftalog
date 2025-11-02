@@ -6,7 +6,7 @@ import {
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import type { VariantProps } from "class-variance-authority"
 import { Link } from "@inertiajs/react"
 
@@ -59,7 +59,7 @@ function PaginationLink({
   ...rest
 }: PaginationLinkProps) {
   const classes = cn(
-    buttonVariants({ variant: isActive ? "outline" : "ghost", size: size as any }),
+    buttonVariants({ variant: isActive ? "outline" : "ghost", size: size as VariantProps<typeof buttonVariants>["size"] }),
     className,
   )
 

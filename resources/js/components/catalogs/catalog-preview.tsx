@@ -1,7 +1,7 @@
 import { CatalogDocument } from '@/components/pdf/catalog-document';
 import { CatalogColors, Product } from '@/types';
 import { PDFViewer } from '@react-pdf/renderer';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 
 interface CatalogPreviewProps {
   companyName: string;
@@ -20,11 +20,12 @@ export function CatalogPreview({
   productsPerPage,
   products,
 }: CatalogPreviewProps) {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // TODO: Use a better way to check if the component is mounted and check is this is necessary in Inertia
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   if (!isClient) {
     return (

@@ -14,7 +14,7 @@ import { Eye } from 'lucide-react';
 import { useState } from 'react';
 
 type CatalogFormWithPreviewProps = {
-  formProps: any;
+  formProps: typeof Form;
   submitLabel: string;
   products: Product[];
   defaultValues?: {
@@ -53,7 +53,10 @@ export default function CatalogFormWithPreview({
     previewData.selectedProductIds.includes(p.id),
   );
 
-  const handleInputChange = (field: string, value: any) => {
+  const handleInputChange = (
+    field: string,
+    value: string | number | boolean,
+  ) => {
     setPreviewData((prev) => ({ ...prev, [field]: value }));
   };
 
