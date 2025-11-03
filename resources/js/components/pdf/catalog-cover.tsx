@@ -102,7 +102,7 @@ export function CatalogCover({
       border: `3px solid ${colors.accent}`,
       alignItems: 'center',
       justifyContent: 'center',
-      marginVertical: 40,
+      marginVertical: 20,
     },
     centerIcon: {
       fontSize: 40,
