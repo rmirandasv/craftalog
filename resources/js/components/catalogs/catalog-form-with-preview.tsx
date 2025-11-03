@@ -80,7 +80,7 @@ export default function CatalogFormWithPreview({
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="flex flex-col lg:flex-row gap-4">
       {/* Form Section */}
       <div className="space-y-6">
         <Form {...formProps}>
@@ -326,15 +326,15 @@ export default function CatalogFormWithPreview({
       </div>
 
       {/* Preview Section */}
-      <div className="lg:sticky lg:top-6 lg:h-[calc(100vh-8rem)]">
-        <Card className="h-full">
+      <div className="lg:sticky lg:top-6 lg:h-[calc(100vh-3rem)] w-full">
+        <Card className="h-full border-2 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-base">
               <Eye className="h-4 w-4" />
               Live Preview
             </CardTitle>
           </CardHeader>
-          <CardContent className="h-[calc(100%-5rem)]">
+          <CardContent className="h-[calc(100%-5rem)] overflow-auto p-6">
             <CatalogPreview
               companyName={previewData.company_name}
               catalogName={previewData.name}
