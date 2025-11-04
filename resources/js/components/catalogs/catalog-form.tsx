@@ -32,7 +32,7 @@ export default function CatalogForm({
   defaultValues,
 }: CatalogFormProps) {
   return (
-    <Form {...formProps}>
+    <Form {...formProps} autoComplete="off">
       {({ processing, errors }) => (
         <>
           <div className="grid gap-6">

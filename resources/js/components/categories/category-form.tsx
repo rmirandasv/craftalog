@@ -27,7 +27,7 @@ export default function CategoryForm({
         <CardTitle className="text-base">Details</CardTitle>
       </CardHeader>
       <CardContent>
-        <Form {...formProps}>
+        <Form {...formProps} autoComplete="off">
           {({ processing, errors }) => (
             <div className="grid gap-6">
               <div className="grid gap-2">
