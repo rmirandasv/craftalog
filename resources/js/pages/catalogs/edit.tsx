@@ -3,6 +3,7 @@ import Heading from '@/components/heading';
 import AppLayout from '@/layouts/app-layout';
 import { edit, index, update } from '@/routes/catalogs';
 import { BreadcrumbItem, Catalog, Product } from '@/types';
+import { Form } from '@inertiajs/react';
 
 export default function CatalogsEdit({
   catalog,
@@ -25,9 +26,9 @@ export default function CatalogsEdit({
   return (
     <AppLayout breadcrumbs={breadcrumbs}>
       <div className="px-4 py-6">
-        <Heading title="Edit Catalog" className="mb-6" />
+        <Heading title="Edit Catalog" />
         <CatalogFormWithPreview
-          formProps={update.form.put(catalog.id)}
+          formProps={update.form.put(catalog.id) as unknown as typeof Form}
           submitLabel="Save Changes"
           products={products}
           defaultValues={{
