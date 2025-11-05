@@ -1,3 +1,4 @@
+import AppLogo from '@/components/app-logo';
 import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
@@ -32,8 +33,7 @@ export default function Welcome({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center gap-2">
-                <BookOpen className="size-6 text-primary" />
-                <span className="text-xl font-bold">Craftalog</span>
+                <AppLogo />
               </div>
               <div className="flex items-center gap-4">
                 {auth.user ? (
