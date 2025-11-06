@@ -1,3 +1,15 @@
+# [0.2.0](https://github.com/rmirandasv/craftalog/compare/v0.1.0...v0.2.0) (2025-11-06)
+
+
+### Bug Fixes
+
+* broken pdf cover if catalog log is present ([7c64594](https://github.com/rmirandasv/craftalog/commit/7c64594fe8bf50c5a2148f24182f6fd1013b0b38))
+
+
+### Features
+
+* add support to configure time trough env ([b3ff745](https://github.com/rmirandasv/craftalog/commit/b3ff7450971413c05be357837e09b81134ba4c88))
+
 # [0.1.0](https://github.com/rmirandasv/craftalog/compare/v0.0.0...v0.1.0) (2025-11-02)
 
 
