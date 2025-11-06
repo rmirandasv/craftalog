@@ -16,12 +16,7 @@ import { index as categoriesIndex } from '@/routes/categories';
 import { index as productsIndex } from '@/routes/products';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import {
-  BookOpen,
-  FolderTree,
-  LayoutGrid,
-  Package,
-} from 'lucide-react';
+import { BookOpen, FolderTree, LayoutGrid, Package } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [

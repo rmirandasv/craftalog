@@ -80,7 +80,7 @@ export default function CatalogFormWithPreview({
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-4">
+    <div className="flex flex-col gap-4 lg:flex-row">
       {/* Form Section */}
       <div className="space-y-6">
         <Form {...formProps}>
@@ -326,7 +326,7 @@ export default function CatalogFormWithPreview({
       </div>
 
       {/* Preview Section */}
-      <div className="lg:sticky lg:top-6 lg:h-[calc(100vh-3rem)] w-full">
+      <div className="w-full lg:sticky lg:top-6 lg:h-[calc(100vh-3rem)]">
         <Card className="h-full border-2 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-base">
